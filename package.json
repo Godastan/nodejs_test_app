@@ -1,0 +1,27 @@
+{
+  "name": "nodejs_test_app",
+  "version": "1.0.0",
+  "description": "experiments with express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Godastan/nodejs_test_app.git"
+  },
+  "keywords": [
+    "express",
+    "application",
+    "nodejs"
+  ],
+  "author": "Godastan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Godastan/nodejs_test_app/issues"
+  },
+  "homepage": "https://github.com/Godastan/nodejs_test_app#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
