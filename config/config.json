@@ -1,0 +1,7 @@
+{
+  "port" : 3001,
+  "root_dir": "e:/repos/nodejs_test_app",
+  "mongoose": {
+    "uri": "mongodb://localhost/express_app_db"
+  }
+}
