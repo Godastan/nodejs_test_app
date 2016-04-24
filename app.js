@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ttnRouter = require('./routes/ttn');
+var config = require('./config');
+
+var mongoose = require('mongoose');
+mongoose.connect(config.get('mongoose:uri'));
 
 var app = express();
 

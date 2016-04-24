@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
         if (err){
             throw err
         }
-        res.render('index', {
+        res.render('ttn/main', {
             title: 'TTN Manager',
             ttns: ttns
         });

@@ -2,8 +2,11 @@
 
 var fixtures = require('pow-mongoose-fixtures');
 var path = require('path');
-var db = require('../db');
 var Ttn = require('../models/ttn');
+var config = require('../config');
+var mongoose = require('mongoose');
+
+mongoose.connect(config.get('mongoose:uri'));
 
 fixtures.load({
     Ttn: [
@@ -24,4 +27,4 @@ fixtures.load({
             "vat": 20
         }
     ]
-}, db, () => db.connection.close());
+}, mongoose, () => mongoose.connection.close());
