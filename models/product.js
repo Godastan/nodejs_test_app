@@ -3,9 +3,9 @@ var Schema = mongoose.Schema;
 
 var productSchema = new Schema({
     name: String,
-    seller: Seller
+    seller_id: Schema.Types.ObjectId
 });
 
-var Product = mongoose.model('Ttn', productSchema);
+var Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;

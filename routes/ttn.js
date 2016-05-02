@@ -1,15 +1,15 @@
 var express = require('express');
-var Ttn = require('../models/ttn');
+var Organization = require('../models/organization');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    Ttn.find({}, (err, ttns) => {
+    Organization.find({}, (err, orgs) => {
         if (err){
             throw err
         }
         res.render('ttn/main', {
             title: 'TTN Manager',
-            ttns: ttns
+            ttns: orgs
         });
     });
 });
