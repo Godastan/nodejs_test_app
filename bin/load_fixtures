@@ -1,20 +1,59 @@
 #!/usr/bin/env node
-
-var fixtures = require('pow-mongoose-fixtures');
 var path = require('path');
-var config = require('../config');
 var mongoose = require('mongoose');
+var fixtures = require('pow-mongoose-fixtures');
+
+var config = require('../config');
+
+var Seller = require('../models/seller');
+var Product = require('../models/product');
+var Price = require('../models/price');
+var Organization = require('../models/organization');
+var Waybill = require('../models/waybill');
 
 mongoose.connect(config.get('mongoose:uri'));
 
+var sellersData = [
+    {name: 'Косметикс'},
+    {name: 'Канцтоварищ'},
+    {name: 'Все для дома'}
+];
+
+var productsData = [
+    {name: 'Шампунь'},
+    {name: 'Салфетки'},
+    {name: 'Ручки'},
+    {name: 'Батарейки'}
+];
+
+var pricesData = [
+    {
+        price: 10,
+        date: new Date()
+    }, {
+        price: 15,
+        date: new Date()
+    }
+];
+
+var organizationsData = [
+    {
+        name: 'Рога и Копыта',
+        type: 'ООО'
+    },{
+        name: 'Василек',
+        type: 'ЗАО'
+    }
+];
+
+var waybillsData = [
+    {}
+];
+
 fixtures.load({
-    Organizations: [
-        {
-            name: 'ИП Синникова',
-            type: 'IP'
-        },{
-            name: 'ЧТУП КсанаСвит',
-            type: 'ChTUP'
-        }
-    ]
+    Seller: sellersData,
+    Product: productsData,
+    Price: pricesData,
+    Organization: organizationsData,
+    Waybill: waybillsData
 }, mongoose, () => mongoose.connection.close());

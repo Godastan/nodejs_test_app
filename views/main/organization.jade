@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1= title
+  table
+    tr
+      th ID
+      th Name
+      th Type
+    each org in organizations
+      tr
+        td= org.id
+        td= org.name
+        td= org.type
