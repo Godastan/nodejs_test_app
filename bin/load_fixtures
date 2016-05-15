@@ -5,55 +5,85 @@ var fixtures = require('pow-mongoose-fixtures');
 
 var config = require('../config');
 
-var Seller = require('../models/seller');
 var Product = require('../models/product');
-var Price = require('../models/price');
-var Organization = require('../models/organization');
 var Waybill = require('../models/waybill');
 
 mongoose.connect(config.get('mongoose:uri'));
 
-var sellersData = [
-    {name: 'Косметикс'},
-    {name: 'Канцтоварищ'},
-    {name: 'Все для дома'}
-];
-
 var productsData = [
-    {name: 'Шампунь'},
-    {name: 'Салфетки'},
-    {name: 'Ручки'},
-    {name: 'Батарейки'}
-];
-
-var pricesData = [
     {
-        price: 10,
-        date: new Date()
-    }, {
-        price: 15,
-        date: new Date()
-    }
-];
-
-var organizationsData = [
+        _id: mongoose.Types.ObjectId(),
+        name: 'Шампунь'
+    },
     {
-        name: 'Рога и Копыта',
-        type: 'ООО'
-    },{
-        name: 'Василек',
-        type: 'ЗАО'
+        _id: mongoose.Types.ObjectId(),
+        name: 'Салфетки'
+    },
+    {
+        _id: mongoose.Types.ObjectId(),
+        name: 'Ручки'
+    },
+    {
+        _id: mongoose.Types.ObjectId(),
+        name: 'Батарейки'
     }
 ];
 
 var waybillsData = [
-    {}
+    {
+        number: '123',
+        date: new Date(),
+        organization: 'Рога и Копыта',
+        products: [
+            {
+                product: productsData[0]._id,
+                quantity: 14,
+                price: 100,
+                VAT: 20,
+                markup_1: 10,
+                markup_2: 30
+            },{
+                product: productsData[1]._id,
+                quantity: 15,
+                price: 200,
+                VAT: 20,
+                markup_1: 10,
+                markup_2: 30
+            }
+        ]
+    },
+    {
+        number: '456',
+        date: new Date(),
+        organization: 'Василек',
+        products: [
+            {
+                product: productsData[1]._id,
+                quantity: 11,
+                price: 300,
+                VAT: 20,
+                markup_1: 10,
+                markup_2: 30
+            },{
+                product: productsData[2]._id,
+                quantity: 12,
+                price: 400,
+                VAT: 20,
+                markup_1: 10,
+                markup_2: 30
+            },{
+                product: productsData[3]._id,
+                quantity: 13,
+                price: 500,
+                VAT: 20,
+                markup_1: 10,
+                markup_2: 30
+            }
+        ]
+    }
 ];
 
 fixtures.load({
-    Seller: sellersData,
     Product: productsData,
-    Price: pricesData,
-    Organization: organizationsData,
     Waybill: waybillsData
 }, mongoose, () => mongoose.connection.close());

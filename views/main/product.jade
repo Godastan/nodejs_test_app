@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1= title
+  table
+    tr
+      th ID
+      th Name
+    each prod in products
+      tr
+        td= prod.id
+        td= prod.name

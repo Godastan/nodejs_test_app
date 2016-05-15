@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  each waybill in waybills
+    h1 ТТН № #{waybill.number} от #{waybill.date} (#{waybill.organization})
+    table
+      tr
+        th Кол-во
+        th Цена за единицу
+        th НДС
+        th Наценка 1
+        th Наценка 2
+      each product in waybill.products
+        tr
+          td= product.quantity
+          td= product.price
+          td= product.VAT
+          td= product.markup_1
+          td= product.markup_2
