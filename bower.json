@@ -1,0 +1,22 @@
+{
+  "name": "nodejs_test_app",
+  "description": "",
+  "main": "/public/app.js",
+  "authors": [
+    "Daniil <vasya@ya.ru>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Godastan/nodejs_test_app",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "1.5.5"
+  }
+}

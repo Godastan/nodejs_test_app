@@ -4,6 +4,12 @@ var router = express.Router();
 var Product = require('../models/product');
 var Waybill = require('../models/waybill');
 
+router.get('/', (req, res, next) => {
+    res.render('index', {
+        title: 'Main Page'
+    });
+});
+
 router.get('/product', (req, res, next) => {
     Product.find({}, (err, products) => {
         if (err){
